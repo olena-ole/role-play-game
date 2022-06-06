@@ -36,13 +36,14 @@ function Character(data) {
     this.diceCount = data.diceCount;
 
     this.renderCharacter = function() {
-        const diceHtml = getDiceHtml(this.diceCount);
+        const { id, name, avatarSrc, health, diceCount} = this;
+        const diceHtml = getDiceHtml(diceCount);
 
-        document.getElementById(this.id).innerHTML = `
+        document.getElementById(id).innerHTML = `
             <div class="character-card">
-                <h4 class="name">${this.name}</h4>
-                <img class="avatar" src="${this.avatarSrc}"/>
-                <p class="health">health: <b> ${this.health} </b></p>
+                <h4 class="name">${name}</h4>
+                <img class="avatar" src="${avatarSrc}"/>
+                <p class="health">health: <b> ${health} </b></p>
                 <div class="dice-container">${diceHtml}</div>
             </div>   
         `;
