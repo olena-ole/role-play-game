@@ -18,11 +18,9 @@ const monster = {
 
 
 function getDiceRollArray(diceCount) {
-    const newDiceRollArr = [];
-    for (let i = 0; i < diceCount; i++) {
-        newDiceRollArr.push(Math.floor(Math.random() * 6) + 1);
-    }
-    return newDiceRollArr;
+    return new Array(diceCount)
+        .fill(0)
+        .map( () => Math.floor(Math.random() * 6) + 1);
 }
 
 function getDiceHtml(diceCount) {
