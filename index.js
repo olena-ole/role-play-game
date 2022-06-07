@@ -6,20 +6,21 @@ function getDiceRollArray(diceCount) {
         .map( () => Math.floor(Math.random() * 6) + 1);
 };
 
-const hero = {
-    id: 'hero',
-    name: 'Wizard',
-    avatarSrc: './images/wizard.png',
-    health: 60,
-    diceCount: 3,
-};
-
-const monster = {
-    id: 'monster',
-    name: 'Orc',
-    avatarSrc: './images/orc.png',
-    health: 10,
-    diceCount: 1,
+const characterData = {
+    hero: {
+        id: 'hero',
+        name: 'Wizard',
+        avatarSrc: './images/wizard.png',
+        health: 60,
+        diceCount: 3,
+    },
+    monster: {
+        id: 'monster',
+        name: 'Orc',
+        avatarSrc: './images/orc.png',
+        health: 10,
+        diceCount: 1,
+    }
 };
 
 function Character(data) {
@@ -46,8 +47,8 @@ function Character(data) {
     }
 }
 
-const wizard = new Character(hero);
-const orc = new Character(monster);
+const wizard = new Character(characterData.hero);
+const orc = new Character(characterData.monster);
 
 function render() {
     document.getElementById(wizard.id).innerHTML = wizard.renderCharacter();
