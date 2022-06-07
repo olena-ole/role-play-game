@@ -9,6 +9,15 @@ function Character(data) {
         this.diceArray = this.currentDiceScore.map(score => `<div class="dice">${score}</div>`).join('');
     };
 
+    this.takeDamage = function(attackScoreArray) {
+        const totalAttackScore = attackScoreArray.reduce((total, current) => total + current);
+        this.health = this.health - totalAttackScore;
+        if (this.health <= 0) {
+            this.health = 0;
+            this.dead = true;
+        }
+    };
+
     this.renderCharacter = function() {
         const {name, avatarSrc, health, diceCount, diceArray} = this;
 
@@ -20,7 +29,7 @@ function Character(data) {
                 <div class="dice-container">${diceArray}</div>
             </div>   
         `;
-    }
-}
+    };
+};
 
 export default Character;
